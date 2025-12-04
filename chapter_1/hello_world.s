@@ -10,10 +10,15 @@ _main:
     // mov (Move): Puts the value 1 into register X0
     // Why?: X0 holds the first argument for the function. 
     //File Descriptor 1 represents Standard Output (stdout), which is usually your terminal screen.
-    
-    adr X1, message
-    //adr (Address): Calculates the memory address of the label message and stores that address in register X1.
-    //Why?: X1 holds the second argument for the function, which is a pointer to the string we want to print.
+
+
+    // LOAD ADDRESS OF STRING INTO REGISTER
+    // use adrp (Address Page) + add (Page Offset) to find the
+    // 'message' label located in data.s
+
+    adrp X1, message@PAGE   // Load the page address of 'message' into X1
+    add X1, X1, message@PAGEOFF  // Add the offset within the page to get the full address
+    // Why?: X1 holds the second argument: the memory address of the string we want to print. We use adrp and add to construct the full 64-bit address of 'message'.
 
     mov X2, #14
     // mov (Move): Puts the value 14 into register X2
