@@ -27,7 +27,7 @@ _main:
 else_block:
     // Else block: X9 <= 5
     // Print "Smaller than 5"
-    miv X0, #1
+    mov X0, #1
     adrp X1, Smaller@PAGE
     add X1, X1, Smaller@PAGEOFF
     mov X2, #15       // length of "Smaller than 5\n"
