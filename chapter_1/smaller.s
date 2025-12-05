@@ -1,8 +1,9 @@
 .global Smaller
 
-.smaller
+.data
 
 .align 2
 
-smaller:
-   .asciic "Smaller than 5\n"
+Smaller:
+   .ascii "Smaller than 5\n"
+    
